@@ -105,7 +105,7 @@ public class TaskDAO {
 		statement.close();
 	}
 	
-	public void updatet(Task task) throws SQLException {
+	public void update(Task task) throws SQLException {
 		String sql = "UPDATE tasks SET content = ?, deadline = ?, updated_at = ? WHERE id = ?";
 		
 		Timestamp now = new Timestamp(System.currentTimeMillis());

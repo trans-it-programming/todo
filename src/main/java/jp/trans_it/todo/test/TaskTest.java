@@ -17,7 +17,7 @@ class TaskTest {
 
 	@Test
 	void test() throws ClassNotFoundException, SQLException {
-		Connection connection = DbUtil.connec();
+		Connection connection = DbUtil.connect();
 		
 		TaskDAO dao = new TaskDAO(connection);
 		
@@ -45,7 +45,7 @@ class TaskTest {
 		
 		task.setContent("更新のテスト");
 		task.setDeadline(Date.valueOf("2022-10-26"));
-		dao.updatet(task);
+		dao.update(task);
 		
 		System.out.println("現在の一覧");
 		list = dao.findAll();

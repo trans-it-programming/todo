@@ -23,7 +23,7 @@ public class TaskServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			Connection connection = DbUtil.connec();
+			Connection connection = DbUtil.connect();
 			TaskDAO dao = new TaskDAO(connection);
 			
 			String method = req.getParameter("method");
@@ -59,7 +59,7 @@ public class TaskServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		
 		try {
-			Connection connection = DbUtil.connec();
+			Connection connection = DbUtil.connect();
 			TaskDAO dao = new TaskDAO(connection);
 			
 			String method = req.getParameter("method");			
@@ -122,7 +122,7 @@ public class TaskServlet extends HttpServlet {
 		boolean success = true;
 		if(this.checkTask(dao, request)) {
 			this.setTask(task, request);
-			dao.updatet(task);
+			dao.update(task);
 		}
 		else {
 			request.setAttribute("task", task);
